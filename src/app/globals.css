@@ -1,26 +1,118 @@
 @import "tailwindcss";
+@source "../**/*.{ts,tsx}";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── BARA Design Tokens ──────────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Canvas */
+  --color-canvas-lunch:  #FAF6F0;
+  --color-canvas-dinner: #130D0A;
+
+  /* Ink */
+  --color-ink-primary-lunch:  #1C140F;
+  --color-ink-primary-dinner: #F7EFE6;
+  --color-ink-muted-lunch:    #635347;
+  --color-ink-muted-dinner:   #B8A494;
+
+  /* Accents */
+  --color-brass:          #C88A36;
+  --color-ember:          #D94E28;
+
+  /* Frosted Glass */
+  --glass-bg-lunch:   rgba(255, 252, 247, 0.82);
+  --glass-bg-dinner:  rgba(28,  19,  14,  0.82);
+  --glass-border-lunch:  rgba(120,  72,  40, 0.14);
+  --glass-border-dinner: rgba(217, 130,  54, 0.22);
+
+  /* Typography */
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body:    "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "Fira Code", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Themeable runtime CSS variables ─────────────────────────────────────── */
+/* These are readable by inline `style` props and cannot live in @theme inline */
+:root {
+  --bg-primary: #FAF6F0;
+}
+html[data-theme="dinner"] {
+  --bg-primary: #130D0A;
+}
+
+/* ─── Base Resets ─────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Ensure the HTML root itself is never left as default white */
+    background-color: var(--bg-primary);
+    transition: background-color 0.6s ease;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--color-ink-primary-lunch);
+    transition: background-color 0.6s ease, color 0.6s ease;
+  }
+
+  /* Dinner theme override applied via data-theme on <html> */
+  html[data-theme="dinner"] body {
+    background-color: var(--bg-primary);
+    color: var(--color-ink-primary-dinner);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  code, .mono {
+    font-family: var(--font-mono);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Frosted Glass Card ──────────────────────────────────────────────────── */
+@layer components {
+  .glass-card {
+    background: var(--glass-bg-lunch);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--glass-border-lunch);
+    border-radius: 1rem;
+    transition: background 0.6s ease, border-color 0.6s ease;
+  }
+
+  html[data-theme="dinner"] .glass-card {
+    background: var(--glass-bg-dinner);
+    border-color: var(--glass-border-dinner);
+  }
+
+  /* Thin brass rule used as section divider */
+  .brass-rule {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: var(--color-brass);
+  }
+
+  /* Telemetry / badge text — JetBrains Mono */
+  .telemetry {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Ambiance-aware text helpers */
+  .text-ink-primary  { color: var(--color-ink-primary-lunch); }
+  .text-ink-muted    { color: var(--color-ink-muted-lunch);   }
+  .text-brass        { color: var(--color-brass);             }
+  .text-ember        { color: var(--color-ember);             }
+
+  html[data-theme="dinner"] .text-ink-primary { color: var(--color-ink-primary-dinner); }
+  html[data-theme="dinner"] .text-ink-muted   { color: var(--color-ink-muted-dinner);   }
 }

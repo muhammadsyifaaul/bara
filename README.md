@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BARA — Wood-Fired Gastronomy & Open-Hearth Dining
 
-## Getting Started
+An intimate 8-seat chef's counter powered by a 680 °C coffee-wood hearth, built as an interactive 3D showcase with procedural Three.js / React Three Fiber scenes, Lenis smooth scroll, and GSAP choreography.
 
-First, run the development server:
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 App Router (TypeScript) |
+| Styling | Tailwind CSS v4 |
+| 3D | Three.js 0.187 · React Three Fiber 9 · Drei 10 |
+| Animation | GSAP 3 · ScrollTrigger · Lenis 1.3 |
+| State | Zustand 5 |
+| Fonts | Cormorant Garamond · Plus Jakarta Sans · JetBrains Mono |
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000  (Turbopack)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Production build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy to Vercel
 
-## Learn More
+1. Push this repository to GitHub.
+2. Import the repo in [vercel.com/new](https://vercel.com/new).
+3. Vercel auto-detects Next.js — no extra settings needed.
+4. Set the **Node.js version** to **20.x** in Project → Settings → General if not auto-detected.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Region is pre-set to `sin1` (Singapore) in `vercel.json`. Change to your preferred region before importing.

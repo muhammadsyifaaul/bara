@@ -1,16 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
+  // Turbopack is used during `next dev` only.
+  // Production builds on Vercel use SWC/Webpack — these options are dev-only.
+  experimental: {
+    // Keep partial prefetching for the production router
+    ppr: false,
   },
 };
 
