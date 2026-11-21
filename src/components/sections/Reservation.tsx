@@ -50,7 +50,7 @@ export default function Reservation() {
     "placeholder:text-ink-muted/50";
 
   return (
-    <section id="reserve" className="py-24 md:py-32 scroll-mt-20">
+    <section id="reserve" className="py-24 md:py-32 scroll-mt-24">
       <div className="max-w-xl px-6 md:px-10">
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">

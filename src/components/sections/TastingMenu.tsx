@@ -144,7 +144,7 @@ export default function TastingMenu() {
   };
 
   return (
-    <section ref={sectionRef} id="tasting-menu" className="py-24 md:py-32 scroll-mt-20">
+    <section ref={sectionRef} id="tasting-menu" className="py-24 md:py-32 scroll-mt-24">
       <div className="max-w-xl px-6 md:px-10">
         <div className="tm-eyebrow flex items-center gap-3 mb-4 opacity-0">
           <span className="brass-rule" />

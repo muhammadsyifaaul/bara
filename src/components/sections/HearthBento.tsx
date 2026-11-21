@@ -76,7 +76,7 @@ export default function HearthBento() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="hearth" className="py-24 md:py-32 scroll-mt-20">
+    <section ref={sectionRef} id="hearth" className="py-24 md:py-32 scroll-mt-24">
       <div className="max-w-xl px-6 md:px-10">
         <div className="hearth-eyebrow flex items-center gap-3 mb-4 opacity-0">
           <span className="brass-rule" />

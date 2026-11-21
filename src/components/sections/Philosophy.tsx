@@ -72,7 +72,7 @@ export default function Philosophy() {
     <section
       ref={sectionRef}
       id="philosophy"
-      className="py-20 md:py-28 scroll-mt-20"
+      className="py-20 md:py-28 scroll-mt-24"
     >
       <div className="max-w-xl px-6 md:px-10">
 
