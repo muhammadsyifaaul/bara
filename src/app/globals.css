@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@source "../**/*.{ts,tsx}";
 
 /* ─── BARA Design Tokens ──────────────────────────────────────────────────── */
 @theme inline {
